@@ -14,19 +14,19 @@ public class Pizza {
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        isToppingsAdded = false;
-        isTakeAwayAdded = false;
-        isCheeseAdded = false;
-        billgenerated = false;
+        this.isToppingsAdded = false;
+        this.isTakeAwayAdded = false;
+        this.isCheeseAdded = false;
+        this.billgenerated = false;
         this.bill="";
         if(isVeg){
-            price+=300;
-            toppings = 70;
+            this.price=300;
+            this.toppings = 70;
         }else{
-            price+=400;
-            toppings = 120;
+            this.price=400;
+            this.toppings = 120;
         }
-        cheese = 80;
+        this.cheese = 80;
         System.out.println("Base Price Of The Pizza: "+this.price);
     }
 
