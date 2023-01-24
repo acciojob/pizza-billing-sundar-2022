@@ -5,66 +5,69 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-    private int cheese;
+    private int Cheese;
     private int toppings;
-     boolean isToppingsAdded;
-     boolean isCheeseAdded;
-     boolean isTakeAwayAdded;
-     boolean billgenerated;
+    private boolean isExtraCheeseAdded;
+    private boolean isExtraToppingsAdded;
+    private boolean isTakeAwayAdded;
+    private boolean isBillGenerated;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        this.isToppingsAdded = false;
-        this.isTakeAwayAdded = false;
-        this.isCheeseAdded = false;
-        this.billgenerated = false;
         this.bill="";
+        this.isExtraCheeseAdded=false;
+        this.isExtraToppingsAdded=false;
+        this.isTakeAwayAdded=false;
+        this.isBillGenerated=false;
         if(isVeg){
             this.price=300;
-            this.toppings = 70;
-        }else{
-            this.price=400;
-            this.toppings = 120;
+            this.toppings=70;
         }
-        this.cheese = 80;
-        System.out.println("Base Price Of The Pizza: "+this.price);
+        else{
+            this.price=400;
+            this.toppings=120;
+        }
+        this.Cheese=80;
+        this.bill="Base Price Of The Pizza: "+this.price+"\n";
     }
 
     public int getPrice(){
-
         return this.price;
     }
+
     public void addExtraCheese(){
-       if(!isCheeseAdded){
-           price+=cheese;
-           isCheeseAdded = true;
-       }
+        if(!isExtraCheeseAdded){
+            price+=Cheese;
+            isExtraCheeseAdded=true;
+        }
     }
+
     public void addExtraToppings(){
-        if(!isToppingsAdded){
+        if(!isExtraToppingsAdded){
             price+=toppings;
-            isToppingsAdded = true;
+            isExtraToppingsAdded=true;
         }
     }
 
     public void addTakeaway(){
-      if(!isTakeAwayAdded){
-          price+=20;
-          isTakeAwayAdded = true;
-      }
+        // your code goes here
+        if(!isTakeAwayAdded){
+            price+=20;
+            isTakeAwayAdded=true;
+        }
     }
 
     public String getBill(){
-        if(!billgenerated){
-            if(isCheeseAdded)
-                this.bill+= "Extra Cheese Added: "+this.cheese+"\n";
-            if(isToppingsAdded)
-                this.bill+= "Extra Toppings Added: "+this.toppings+"\n";
-            if(isTakeAwayAdded)
-                this.bill+= "Paperbag Added: 20"+"\n";
-
-            this.bill+= "Total Price: "+this.price+"\n";
-            billgenerated = true;
+        if(!isBillGenerated){
+            if(isExtraCheeseAdded)
+                this.bill+="Extra Cheese Added: "+this.Cheese+"\n";
+            if(isExtraToppingsAdded)
+                this.bill+="Extra Toppings Added: "+this.toppings+"\n";
+            if(isTakeAwayAdded){
+                this.bill+="Paperbag Added: "+"20"+"\n";
+            }
+            this.bill+="Total Price: "+this.price+"\n";
+            isBillGenerated=true;
         }
         return this.bill;
     }
